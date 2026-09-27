@@ -1,0 +1,50 @@
+name: ci
+
+# Started by hand while the repositories are private: macOS runners of private
+# repositories spend minutes, and the same checks run locally before every
+# push (plans/AGENTS.md, "CI antes de push"). When the repositories open, add
+# push, pull_request and a weekly schedule, as the Arandu tap does.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  formula:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: checkout
+
+      # Homebrew refuses to look at a formula outside a tap, so the checkout
+      # goes where taps live.
+      - name: place the tap
+        run: |
+          tap="$(brew --repository)/Library/Taps/yxy-develop/homebrew-tap"
+          mkdir -p "$(dirname "$tap")"
+          cp -R checkout "$tap"
+
+      - name: style
+        run: brew style yxy-develop/tap
+
+      - name: audit
+        run: brew audit --strict yxy-develop/tap/yxy
+
+      # Installing needs read access to the private source. YXY_SOURCE_TOKEN is
+      # a repository secret: a fine-grained token with read-only access to the
+      # contents of yxy-develop/yxy. It is not configured yet; until it is, this
+      # step fails, and the local checks are the gate.
+      - name: install
+        env:
+          YXY_SOURCE_TOKEN: ${{ secrets.YXY_SOURCE_TOKEN }}
+        run: |
+          git config --global url."https://x-access-token:${YXY_SOURCE_TOKEN}@github.com/".insteadOf "git@github.com:"
+          brew install --build-from-source yxy-develop/tap/yxy
+          brew test yxy-develop/tap/yxy
+          yxy --version
