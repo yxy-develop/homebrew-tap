@@ -12,10 +12,11 @@ class Yxy < Formula
   desc "Compiler and toolchain for the Yxy programming language"
   homepage "https://yxy.dev"
   url "git@github.com:yxy-develop/yxy.git",
+      using:    :git,
       tag:      "v0.0.1",
       revision: "0000000000000000000000000000000000000000"
   license "BSD-3-Clause"
-  head "git@github.com:yxy-develop/yxy.git", branch: "develop"
+  head "git@github.com:yxy-develop/yxy.git", using: :git, branch: "develop"
 
   depends_on "rust" => :build
 
