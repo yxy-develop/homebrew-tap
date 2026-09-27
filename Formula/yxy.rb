@@ -13,8 +13,8 @@ class Yxy < Formula
   homepage "https://yxy.dev"
   url "git@github.com:yxy-develop/yxy.git",
       using:    :git,
-      tag:      "v0.0.1",
-      revision: "1c4fb6ebedf8533b19dfeedb283350e2fd3ebb15"
+      tag:      "v0.0.2",
+      revision: "9c5ebb1bf63c7e470f3b416b1a47f1dbccbd34f3"
   license "BSD-3-Clause"
   head "git@github.com:yxy-develop/yxy.git", using: :git, branch: "develop"
 
