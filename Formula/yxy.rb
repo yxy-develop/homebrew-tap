@@ -28,7 +28,7 @@ class Yxy < Formula
   def install
     system "cargo", "install", *std_cargo_args(root: libexec, path: "compiler")
     if OS.linux?
-      (bin/"yxy").write_env_script libexec/"bin/yxy", YXY_CC: Formula["llvm"].opt_bin/"clang"
+      (bin/"yxy").write_env_script libexec/"bin/yxy", YXY_CC: formula_opt_bin("llvm")/"clang"
     else
       bin.install_symlink libexec/"bin/yxy"
     end
