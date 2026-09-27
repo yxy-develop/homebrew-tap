@@ -14,7 +14,7 @@ class Yxy < Formula
   url "git@github.com:yxy-develop/yxy.git",
       using:    :git,
       tag:      "v0.0.1",
-      revision: "0000000000000000000000000000000000000000"
+      revision: "1c4fb6ebedf8533b19dfeedb283350e2fd3ebb15"
   license "BSD-3-Clause"
   head "git@github.com:yxy-develop/yxy.git", using: :git, branch: "develop"
 
