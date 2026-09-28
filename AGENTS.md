@@ -1,8 +1,7 @@
 # Yxy Homebrew tap — agent and contributor instructions
 
 This repository is the Homebrew tap for the `yxy` compiler: `Formula/yxy.rb`
-and nothing else of substance. `CLAUDE.md` only imports this file. In the
-maintainer workspace, the workspace rules are in `../plans/AGENTS.md`.
+and nothing else of substance. In the maintainer workspace, the workspace rules are in `../plans/AGENTS.md`.
 
 - The formula builds from source at a tag of `yxy-develop/yxy`, pinned by tag
   and commit. Changing the tag means changing both, in the same commit.
