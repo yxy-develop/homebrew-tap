@@ -72,7 +72,7 @@ Issues; a problem with `yxy` itself, in the
 [security policy](https://github.com/yxy-develop/.github/blob/HEAD/SECURITY.md)
 and [code of conduct](https://github.com/yxy-develop/.github/blob/HEAD/CODE_OF_CONDUCT.md)
 are shared by every Yxy repository. Anything else:
-[contact@yxy.dev](mailto:contact@yxy.dev).
+[hello@yxy.dev](mailto:hello@yxy.dev).
 
 ## License
 
@@ -92,4 +92,4 @@ o `yxy` verifica, compila e executa programas. No Linux, por enquanto, verifica
 e gera arquivos objeto; ligar e executar no Linux ainda não é suportado.
 Dúvidas vão para as
 [Discussões da Yxy](https://github.com/orgs/yxy-develop/discussions); contato:
-[contact@yxy.dev](mailto:contact@yxy.dev).
+[hello@yxy.dev](mailto:hello@yxy.dev).
